@@ -1,0 +1,12 @@
+<form role="form" [formGroup]="prijavljivanjeForm">
+                <div class="alert alert-danger" style="display: none;"></div>
+                <div class="form-group">
+                  <label for="korisnickoIme">Korisnicko ime:</label>
+                  <input type="text" class="form-control" formControlName="korisnickoIme">
+                </div>
+                <div class="form-group">
+                  <label for="lozinka">Lozinka:</label>
+                  <input type="password" class="form-control" formControlName="lozinka">
+                </div>
+                <button (click)="onPrijavljivanje()" class="btn btn-default">Prijavljivanje</button>
+            </form>

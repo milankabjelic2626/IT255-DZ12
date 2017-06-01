@@ -1,0 +1,21 @@
+              <form role="form" [formGroup]="registracijaForm">
+                <div class="alert alert-danger" style="display: none;">
+                </div>
+               <div class="form-group">
+                  <label for="ime">Ime:</label>
+                  <input type="text" class="form-control" formControlName='ime'>
+                </div>
+                 <div class="form-group">
+                  <label for="prezime">Prezime:</label>
+                  <input type="text" class="form-control"  formControlName='prezime'>
+                </div>
+                <div class="form-group">
+                  <label for="korisnickoIme">Korisnicko ime:</label>
+                  <input type="text" class="form-control"  formControlName='korisnickoIme'>
+                </div>
+                <div class="form-group">
+                  <label for="lozinka">Lozinka:</label>
+                  <input type="password" class="form-control" formControlName='lozinka'>
+                </div>
+                <button (click)="onRegistracija()" class="btn btn-default">Registruj se</button>
+              </form>

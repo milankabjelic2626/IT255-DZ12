@@ -1,0 +1,49 @@
+   
+
+    <div class="container">
+            <div class="jumbotron">
+                <div id="logo">
+                <img src="assets/slika.jpg"/>
+                </div>
+                <h1>Restoran Milanka</h1>
+                <p>Vrhunsko osoblje i prijatna atmosfera</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>O nama...</h3>
+                    <p>U srcu Novog Sada, u njegovom samom centru, uspeli smo da stvorimo ambijent u kojem naši posetioci mogu da pobegnu od gradske vreve i ubrzane svakodnevnice.
+                        Priznaćete, to nam je svima preko potrebno. Prijatna atmosfera uz najlepše ritmove i najrazličitije ukuse pravi su raj za sva Vaša čula.
+                    </p>
+                    <p>Naše putovanje sa hranom počeli smo davno, delili iskustva kako naša tako i drugih uživalaca hrane i 1. Juna 2013. godine, posle pažljivog selektiranja odabrali smo jela.</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Specijaliteti kuće...</h3>
+                    <p>Bili smo pristrasni, odabrali smo najvise tradicionalnih jela, ali upakovanih na naš način, možda malo moderniji, ali suština je tu, tradicija nije promenjena, već je sačuvana.</p>
+                    <p>Preporučujemo od dezerata: Pana Cotta, Mille Feuille, kao i tadicionalni Cheese Cake</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Vinska karta...</h3>
+                    <p>Nudimo širok asortiman kako belih, crnih, tako i desertnih vina...</p>
+                    <p>Preporučujemo tamjaniku, beli bermet kao i bermet crveni</p>
+                </div>
+            </div>
+    </div>
+
+
+<div class="col-lg-12">
+  <div class="row">
+    <form  role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Ime" name="name" [(ngModel)]="nazivJela">
+        <input type="text" class="form-control" placeholder="Cena" name="cena" [(ngModel)]="cena">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div *ngFor="let jelo of data | SearchPipe:nazivJela | SearchPipe2:cena">
+    Ime: {{jelo.nazivJela}}
+    Cena: {{jelo.cena}}
+  </div>
+</div>
+<a routerLink="dodaj">Dodaj Jelo</a>

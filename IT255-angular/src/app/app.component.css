@@ -1,0 +1,10 @@
+#logo{
+    float: center;
+}
+
+#logo > img{
+	height: 280px;
+	margin-top:10px;
+	margin-left:10px;
+    border-radius: 10px;
+}

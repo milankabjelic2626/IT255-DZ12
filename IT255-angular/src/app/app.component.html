@@ -1,0 +1,20 @@
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Restoran Milanka</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Početna strana</a></li>
+                <li><a href="#">Meni</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li><a href="#">Lokacija</a></li>
+                <li><a routerLink="/reg">Registracija</a></li>
+                <li><a routerLink="/prijavljivanje">Prijavljivanje</a></li>
+                <li><ng-container *ngIf="isAuth == 'yes'"><a (click)="onLogout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></ng-container></li>
+                </ul> 
+            </div>
+        </div>
+    </nav>
+<router-outlet></router-outlet>
+

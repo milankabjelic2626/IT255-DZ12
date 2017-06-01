@@ -1,0 +1,11 @@
+<form role="form" [formGroup]="dodajJeloForm">
+ <div class="form-group">
+    <label for="nazivJela">Naziv:</label>
+    <input type="text" class="form-control" formControlName='nazivJela'>
+  </div>
+   <div class="form-group">
+    <label for="cena">Cena:</label>
+    <input type="text" class="form-control"  formControlName='cena'>
+  </div>
+  <button (click)="onDodajJelo()" class="btn btn-default">Dodaj</button>
+</form>
