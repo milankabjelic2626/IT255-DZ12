@@ -1,0 +1,11 @@
+<div class="col-lg-12">
+  <div class="row">
+    <form  role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Ime" name="name" [(ngModel)]="nazivJela">
+        <input type="text" class="form-control" placeholder="Cena" name="cena" [(ngModel)]="cena">
+      </div>
+    </form>
+    <button (click)="onEdit()">Submit</button>
+  </div>
+</div>

@@ -11,6 +11,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import { RegistracijaComponent } from './registracija/registracija.component';
 import { PrijavljivanjeComponent } from './prijavljivanje/prijavljivanje.component';
+import { IzmenaJelaComponent } from "./izmenaJela/izmenaJela.component";
+import { KonkretnoJeloComponent } from "./konkretnoJelo/konkretnoJelo.component";
+import { SvaJelaComponent } from "./svaJela/svaJela.component";
+import { EditKonkretnoJelo} from "./editJelo/editJelo.component";
 
 
 
@@ -23,7 +27,11 @@ import { PrijavljivanjeComponent } from './prijavljivanje/prijavljivanje.compone
     DodajJeloComponent,
     HomeComponent,
     RegistracijaComponent,
-    PrijavljivanjeComponent
+    PrijavljivanjeComponent,
+    IzmenaJelaComponent,
+    KonkretnoJeloComponent,
+    SvaJelaComponent,
+    EditKonkretnoJelo
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="text-align: center">Naziv jela</th>
+            <th style="text-align: center">Cena</th>
+        </tr>
+	</thead>
+	<tbody>
+        <ng-container  *ngFor="let jela of data | SearchPipe:nazivJela | SearchPipe2:cena">
+            <tr>
+                <td>{{jela.nazivJela}}</td>
+                <td>{{jela.cena}}</td>
+                <ng-container *ngIf="isAuth == 'yes'" ><td><button class="btn btn-default" (click)="izmeniJelo(jela.id)">Izmeni</button></td></ng-container>
+                <ng-container *ngIf="isAuth == 'yes'" ><td><button class="btn btn-danger" (click)="izbrisiJelo($event, jela.id)">Izbrisi</button></td></ng-container>
+                <ng-container *ngIf="isAuth == 'yes'" ><td><button class="btn btn-default" (click)="citajSamoJednoJelo(jela.id)">Detalji</button></td></ng-container>
+            </tr>
+        </ng-container>
+	</tbody>
+</table>

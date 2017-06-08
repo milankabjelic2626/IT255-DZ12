@@ -5,16 +5,15 @@ import 'rxjs/Rx';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  //styleUrls: ['./home.component.css']
+  selector: 'svaJela',
+  templateUrl: './svaJela.component.html',
 })
-export class HomeComponent {
+export class SvaJelaComponent {
     router: Router;
     isAuth: String;
     currentUrl : String;
 
-    private jela = 'http://localhost:8888/it255.php';
+    private jela = 'http://localhost:8888/phpMima/citajSvaJela.php';
     data: Object[];
     name: String = "";
   
@@ -41,22 +40,25 @@ export class HomeComponent {
                 }
         );
     }
+    public izbrisiJelo(event: Event, item: Number) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('token', localStorage.getItem('token'));
+        this.http.get('http://localhost:8888/phpMima/izbrisiJelo.php?id='+ item, { headers: headers }).subscribe( data => {
+        event.srcElement.parentElement.parentElement.remove();
+        });
+    }
 
-public ukloniJelo(event: Event, item: Number) {
-     var headers = new Headers();
-     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-     headers.append('token', localStorage.getItem('token'));
-     this.http.get('http://localhost/izbrisiJelo.php?id='+ item, { headers: headers }).subscribe( data => {
-       event.srcElement.parentElement.parentElement.remove();
-     });
+   public citajSvaJela(id:number){
+     this.router.navigateByUrl('svaJela/' + id);
    }
- /*
-   public viewJela(id:number){
-     this.router.navigateByUrl('jela/' + id);
+
+   public citajSamoJednoJelo(id:number){
+       this.router.navigateByUrl('konkretnoJelo/' + id);
    }
-   */
+   
    public izmeniJelo(id:number){
-     this.router.navigateByUrl('izmenaJela/' + id);
+     this.router.navigateByUrl('editJelo/' + id);
    }
 
 // Kad dodas komponente!

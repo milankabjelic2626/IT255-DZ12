@@ -118,7 +118,7 @@ function checkIfUserExists($username){
 }
 function getAllJela(){
 	global $conn;
-	$kafainfo = "SELECT * FROM jela";
+	$nazivJela = "SELECT * FROM jela";
 	if($stmt = $conn->prepare($nazivJela)){
     	$stmt->execute();
 		if(!$stmt->execute()){ 
@@ -152,5 +152,56 @@ function addJelo($nazivJela, $cena){
     }
     return json_encode($rarray);
 }
-  
+
+function deleteJelo($id){
+    global $conn;
+    $rarray = array();
+    if(checkIfLoggedIn()){
+        $result = $conn->prepare("DELETE FROM jela WHERE id=?");
+        $result->bind_param("i",$id);
+        $result->execute();
+        $rarray['success'] = "ok";
+    } else{
+        $rarray['error'] = "Please log in";
+        header('HTTP/1.1 401 Unauthorized');
+    }
+    return json_encode($rarray);
+}
+
+function editJelo($id, $nazivJela, $cena){
+    global $conn;
+    $rarray = array();
+    if(checkIfLoggedIn()){
+		$stmt = $conn->prepare("UPDATE jela SET nazivJela=?, cena=? WHERE id=?");
+		$stmt->bind_param("ssi", $nazivJela, $cena, $id);
+        if($stmt->execute()){
+            $rarray['success'] = "ok";
+        }else{
+            $rarray['error'] = "Database connection error";
+        }
+    } else{
+        $rarray['error'] = "Please log in";
+        header('HTTP/1.1 401 Unauthorized');
+    }
+    return json_encode($rarray);
+}
+function getJednoJelo($id){
+    global $conn;
+    $rarray = array();
+    if(checkIfLoggedIn()){
+        $jelo = array();
+        $result2 = $conn->query("SELECT * FROM jela WHERE id=".$id);
+        while($row = $result2->fetch_assoc()) {
+            $jela['id'] = $row['id'];
+            $jela['nazivJela'] = $row['nazivJela'];
+            $jela['cena'] = $row['cena'];
+        }
+        $rarray['data'] = $jela;
+        return json_encode($rarray);
+    } else{
+        $rarray['error'] = "Please log in";
+        header('HTTP/1.1 401 Unauthorized');
+return json_encode($rarray);
+    }
+}
 ?>
